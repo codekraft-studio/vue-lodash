@@ -9,9 +9,9 @@
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit --coverage"
   },
-  "dependencies": {
-    "lodash": "^4.17.11",
-    "vue": "^2.5.17"
+  "peerDependencies": {
+    "lodash": "4.x",
+    "vue": "2.x"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
