@@ -3,6 +3,16 @@
   "description": "Lodash integration and filters for Vue",
   "version": "0.1.0",
   "main": "dist/VueLodash.umd.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "vue-plugin",
+    "vue-lodash",
+    "lodash",
+    "lodash-integration"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name VueLodash lib/index.js",
@@ -14,21 +24,24 @@
     "vue": "2.x"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-plugin-eslint": "^3.2.0",
-    "@vue/cli-plugin-unit-jest": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
+    "@vue/cli-plugin-babel": "^4.0.5",
+    "@vue/cli-plugin-eslint": "^4.0.5",
+    "@vue/cli-plugin-unit-jest": "^4.0.5",
+    "@vue/cli-service": "^4.0.5",
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
-    "lint-staged": "^7.2.2",
-    "vue-template-compiler": "^2.5.17"
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.5.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "lint-staged": "^9.4.2",
+    "lodash": "4.x",
+    "vue": "2.x",
+    "vue-template-compiler": "^2.6.10"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.js": [
