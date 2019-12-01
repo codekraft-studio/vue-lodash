@@ -13,7 +13,7 @@ describe('Installation', () => {
   it('should allow for custom lodash name', () => {
     const localVue = createLocalVue()
     localVue.use(VueLodash, {
-      name: 'test'
+      alias: 'test'
     })
     expect(localVue.prototype.test).toBeDefined()
     expect(typeof localVue.prototype.test).toBe('function')
