@@ -1,7 +1,7 @@
 {
   "name": "@codekraft-studio/vue-lodash",
   "description": "Lodash integration and filters for Vue",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/VueLodash.umd.js",
   "files": [
     "dist"
