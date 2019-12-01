@@ -14,6 +14,7 @@
     "lodash-integration"
   ],
   "scripts": {
+    "prepublishOnly": "npm run build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name VueLodash lib/index.js",
     "lint": "vue-cli-service lint",

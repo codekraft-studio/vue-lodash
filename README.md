@@ -2,16 +2,17 @@
 
 > Lodash integration and filters for Vue
 
+[![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![License][license-image]][license-url]
+
 ## Installation
 
-Download the project using your favourite package manager:
+Download the project using your favourite package manager.
 
 ```
 npm install @codekraft-studio/vue-lodash
-yarn add @codekraft-studio/vue-lodash
 ```
 
-Than load it inside your application main file:
+Than load the plugin using Vue in your application.
 
 ```js
 import Vue from 'vue'
@@ -20,17 +21,7 @@ import VueLodash from '@codekraft-studio/vue-lodash'
 Vue.use(VueLodash)
 ```
 
-You can also customize the plugin installation using some options:
-
-```js
-import Vue from 'vue'
-import VueLodash from '@codekraft-studio/vue-lodash'
-
-Vue.use(VueLodash, {
-  name: '_',
-  globalFilters: true
-})
-```
+You can customize the plugin installation using the [options](#options) described below.
 
 ## Usage
 
@@ -51,37 +42,53 @@ to use almost all of the lodash methods as filters, for example:
 You can also chain them to obtain more complex results:
 
 ```html
-<p>{{ description | capitalize | truncate }}</p>
+<p>{{ description | capitalize | truncate({ length: 30 }) }}</p>
 ```
+
+All the filters can be used as shown in the official lodash documentation, be sure to skip the first parameter which is the value since is injected from the application.
 
 ---
 
-## Project setup
-```
-yarn install
+## Options
+
+#### alias
+
+Type: `string`
+
+The alias string used during the plugin installation for registering __lodash__ in Vue prototype, default to `_`.
+
+#### filters
+
+Type: `boolean | array`
+
+Dedice when or which filters should be registered globally during plugin installation. By default the plugin will install all the available filters, but you can disable all of them passing `false` or choose which filters group to add when using an array of strings.
+
+```js
+// load all filters
+Vue.use(VueLodash, {
+  filters: true
+})
+
+// load only filters in lang group
+Vue.use(VueLodash, {
+  filters: ['lang']
+})
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+The filter groups mirror the [official documentation groups](https://lodash.com/docs/).
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+---
 
-### Run your tests
-```
-yarn run test
-```
+## License
 
-### Lints and fixes files
-```
-yarn run lint
-```
+Released with [MIT License](./LICENSE) © [codekraft-studio](https://github.com/codekraft-studio)
 
-### Run your unit tests
-```
-yarn run test:unit
-```
+
+[npm-image]: https://badge.fury.io/js/%40codekraft-studio%2Fvue-lodash.svg
+[npm-url]: https://npmjs.org/package/@codekraft-studio/vue-lodash
+
+[daviddm-image]: https://david-dm.org/codekraft-studio/vue-lodash.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/codekraft-studio/vue-lodash
+
+[license-url]: https://github.com/codekraft-studio/vue-lodash/blob/master/LICENSE
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg
