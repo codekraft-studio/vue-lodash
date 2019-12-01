@@ -3,14 +3,14 @@ import VueLodash from '../../lib/index'
 import GenericFilter from '../../lib/GenericFilter'
 
 describe('Installation', () => {
-  it('add lodash to the Vue prototype', () => {
+  it('should add lodash to the Vue prototype', () => {
     const localVue = createLocalVue()
     localVue.use(VueLodash)
     expect(localVue.prototype._).toBeDefined()
     expect(typeof localVue.prototype._).toBe('function')
   })
 
-  it('allow for custom lodash name', () => {
+  it('should allow for custom lodash name', () => {
     const localVue = createLocalVue()
     localVue.use(VueLodash, {
       name: 'test'
@@ -19,18 +19,34 @@ describe('Installation', () => {
     expect(typeof localVue.prototype.test).toBe('function')
   })
 
-  it('register global filters by default', () => {
+  it('should register global filters by default', () => {
     const localVue = createLocalVue()
     localVue.use(VueLodash)
     expect(Object.keys(localVue.sealedOptions.filters).length).not.toBe(0)
   })
 
-  it('disable the global filters registration', () => {
+  it('should disable the global filters registration', () => {
     const localVue = createLocalVue()
     localVue.use(VueLodash, {
-      globalFilters: false
+      filters: false
     })
     expect(Object.keys(localVue.sealedOptions.filters).length).toBe(0)
+  })
+
+  it('should customize the filters registration', () => {
+    const localVue = createLocalVue()
+    localVue.use(VueLodash, {
+      filters: ['array', 'math']
+    })
+    const loadedFilterNames = Object.keys(localVue.options.filters)
+
+    // contained in array and math group
+    expect(loadedFilterNames).toContain('chunk')
+    expect(loadedFilterNames).toContain('round')
+
+    // contained in others groups
+    expect(loadedFilterNames).not.toContain('clone')
+    expect(loadedFilterNames).not.toContain('escape')
   })
 })
 
