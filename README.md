@@ -77,6 +77,12 @@ Vue.use(VueLodash, {
 
 The filter groups mirror the [official documentation groups](https://lodash.com/docs/).
 
+#### lodash
+
+Type: `object`
+
+Use a custom specific lodash instead of the default version of lodash packed with the lib.
+
 ---
 
 ## License
