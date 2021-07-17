@@ -84,6 +84,8 @@ Type: `object`
 Use a custom specific lodash instead of the default version of lodash packed with the lib.
 
 ---
+## Contributors
+[Emmanuel Mahuni](https://github.com/emahuni)
 
 ## License
 
